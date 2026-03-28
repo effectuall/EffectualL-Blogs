@@ -6,4 +6,14 @@ const nextConfig = {
   swcMinify: true,
 };
 
-module.exports = withContentlayer(nextConfig);
+try {
+  module.exports = withContentlayer(nextConfig);
+} catch (error) {
+  // Ensure error is a proper Error instance
+  if (!(error instanceof Error)) {
+    const err = new Error(String(error));
+    err.stack = error?.stack;
+    throw err;
+  }
+  throw error;
+}
