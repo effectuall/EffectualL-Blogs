@@ -17,4 +17,3 @@ Why is visual elements needed for STEM conceptualization?
 ## Data Privacy & Usage Policy
 
 How we are supporting learner agency.
-
