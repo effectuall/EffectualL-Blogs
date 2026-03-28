@@ -4,6 +4,8 @@ const { withContentlayer } = require("next-contentlayer");
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  output: 'export',
+  basePath: process.env.PAGES_BASE_PATH,
 };
 
 try {
