@@ -1,0 +1,85 @@
+---
+title: "Global Warming Project"
+description: A community project showcasing a 3D Earth model built with Three.js, demonstrating the
+power of AI-assisted development.
+date: "2025-06-03"
+tags: ["3D Visualization", "Three.js", "AI-Assisted Development", "Community Projects"]
+---
+
+As I was reviewing the community projects shared on Manus.im, one project immediately stood out to me—a stunning rendering of a 3D Earth model built using Three.js. The simplicity of the prompt that kicked it off—**“build a 3-D Earth for me”**—caught my attention. I was curious to see how Manus.im’s assistant would handle such an open-ended request.
+
+To my surprise, there was no back-and-forth or clarifying questions. The assistant responded instantly:
+
+> I'll help you build a 3D Earth visualization. I'll create this for you using web technologies that will allow you to interact with a 3D globe. Let me get started on this right away.
+> 
+
+It was like watching a skilled developer spring into action—no hesitation, just pure momentum.
+
+## Watching the Process Unfold
+
+The assistant got straight to work, searching for high-resolution Earth textures and considering the best tools for interactive 3D visualization. When the user suggested “three.js,” the assistant didn’t miss a beat. It shifted gears and began scaffolding the project with Three.js, a powerful JavaScript library for 3D graphics in the browser.
+
+I watched as it:
+
+- **Set up the development environment** (using tools like Vite for fast prototyping)
+- **Initialized a Three.js scene, camera, and renderer**
+- **Created the Earth sphere** with `THREE.SphereGeometry`
+- **Fetched and applied realistic Earth textures**
+- **Added dynamic lighting and mouse controls** for a smooth, interactive experience
+
+## The Code That Brought Earth to Life
+
+Here’s a glimpse of the core code the assistant generated:
+
+```jsx
+import * as THREE from 'three';
+
+*// Scene setup*
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+camera.position.z = 2;
+
+*// Renderer*
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+*// Earth geometry and material*
+const geometry = new THREE.SphereGeometry(0.5, 32, 32);
+const material = new THREE.MeshPhongMaterial({
+  map: new THREE.TextureLoader().load('textures/earthmap.jpg'),
+  bumpMap: new THREE.TextureLoader().load('textures/earthbump.jpg'),
+  bumpScale: 0.05,
+});
+const earth = new THREE.Mesh(geometry, material);
+scene.add(earth);
+
+*// Lighting*
+const light = new THREE.PointLight(0xffffff, 1, 100);
+light.position.set(5, 3, 5);
+scene.add(light);
+
+*// Animation loop*
+function animate() {
+  requestAnimationFrame(animate);
+  earth.rotation.y += 0.002;
+  renderer.render(scene, camera);
+}
+animate();
+```
+
+## The Result: A Globe You Can Explore
+
+The final rendering was genuinely impressive—a **smooth, interactive 3D Earth** that you could spin and zoom right in your browser. The assistant even suggested enhancements like adding clouds and atmospheric effects.
+
+What struck me most was the seamlessness of the experience:
+
+- **No setup headaches**—the assistant just started building.
+- **Smart asset selection**—it found and applied the best textures automatically.
+- **Instant adaptation**—when Three.js was mentioned, the workflow shifted without missing a step.
+
+This project reminded me why I love browsing community creations on Manus.im. Sometimes, all it takes is a simple prompt and a smart assistant to bring a complex idea—like a 3D Earth—to life in minutes.
+
+---
+
+[Contact Us](https://effectuallearning.notion.site/Contact-Us-1e80bb5858c48056a547dd410aaaf0d9)
